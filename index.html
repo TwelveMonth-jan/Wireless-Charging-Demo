@@ -13,11 +13,14 @@
     a { text-decoration: none; }
 
     /* Header + Nav */
-    header { background: linear-gradient(135deg, #0066ff, #021b3b); padding: 1.5rem 0; text-align: center; position: sticky; top: 0; z-index: 100; }
+    header { background: linear-gradient(135deg, #021b3b, #0b3a80); padding: 1.5rem 0; text-align: center; position: sticky; top: 0; z-index: 100; }
     header h1 { color: #fff; font-size: 2rem; animation: fadeInDown 1s ease-out; }
     nav ul { display: flex; justify-content: center; gap: 2rem; margin-top: 0.5rem; }
     nav a { color: #fff; font-weight: 700; padding: 0.5rem; transition: background 0.3s; border-radius: 4px; }
-    nav a:hover { background: rgba(255,255,255,0.2); }
+    nav a:hover { background: rgba(230, 227, 227, 0.2); }
+    nav ul li::marker {
+      color: #fff;
+    }
 
     /* Container + Sections */
     .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
@@ -35,7 +38,7 @@
 
     /* Technical Specs */
     ul.specs { list-style: none; display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 1rem; }
-    ul.specs li { background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    ul.specs li { background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(249, 247, 247, 0.05); }
 
     /* Footer */
     footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #666; }
