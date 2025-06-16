@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D Nano EV Wireless Charging Demo</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; color: #333; line-height: 1.6; background: #f9f9f9; }
+    a { text-decoration: none; }
+
+    /* Header + Nav */
+    header { background: linear-gradient(135deg, #021b3b, #0066ff); padding: 1.5rem 0; text-align: center; position: sticky; top: 0; z-index: 100; }
+    header h1 { color: #fff; font-size: 2rem; animation: fadeInDown 1s ease-out; }
+    nav ul { display: flex; justify-content: center; gap: 2rem; margin-top: 0.5rem; }
+    nav a { color: #fff; font-weight: 700; padding: 0.5rem; transition: background 0.3s; border-radius: 4px; }
+    nav a:hover { background: rgba(255,255,255,0.2); }
+
+    /* Container + Sections */
+    .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 4rem; opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+    section.visible { opacity: 1; transform: translateY(0); }
+
+    /* Live Demo */
+    .demo-img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: block; margin: 1.5rem auto; }
+    .led-indicator {
+      width: 20px; height: 20px; background: #21d07a;
+      border-radius: 50%; margin-left: 0.5rem;
+      animation: pulse 1.5s infinite;
+      vertical-align: middle;
+    }
+
+    /* Technical Specs */
+    ul.specs { list-style: none; display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 1rem; }
+    ul.specs li { background: #fff; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+    /* Footer */
+    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #666; }
+
+    /* Keyframes */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>2D Nano EV Wireless Charging Demo</h1>
+    <nav>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#specs">Specs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="overview">
+      <h2>Project Overview</h2>
+      <p>This demo showcases rapid wireless charging of an RC car using 2D Nano's graphene cement supercapacitors. A Qi transmitter on a spur charges the car when stationary, while a phone Qi pad in the center lets viewers experience universal wireless power.</p>
+    </section>
+
+    <section id="demo">
+      <h2>Live Demo <span class="led-indicator"></span></h2>
+      <p>Watch the RC car complete its lap, then pull off to the charging pad where it instantly tops up its charge. LED indicators reflect capacitor voltage and current in real time.</p>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <img src="images/rc-car-charging.jpg" alt="RC Car Charging Demo" class="demo-img">
+      </div>
+    </section>
+
+    <section id="specs">
+      <h2>Technical Specifications</h2>
+      <ul class="specs">
+        <li><strong>Material:</strong> Graphene Cement Supercaps</li>
+        <li><strong>Capacitance:</strong> 10 F</li>
+        <li><strong>Voltage:</strong> 5 V</li>
+        <li><strong>80% Charge:</strong> &lt; 10 seconds</li>
+        <li><strong>Qi Frequency:</strong> 110–205 kHz</li>
+        <li><strong>LED Feedback:</strong> Real-time</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact & Info</h2>
+      <p>Presenting at Birmingham Battery System Expo 2025. Hosted via GitHub Pages.</p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 2D Nano • All rights reserved
+  </footer>
+
+  <script>
+    // Scroll-reveal animation
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < triggerBottom) sec.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
